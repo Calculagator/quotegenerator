@@ -1,32 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Provider, connect } from 'react-redux'
-import { configureStore, combineReducers, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
 import logo from './logo.svg';
+import { createSlice } from '@reduxjs/toolkit'
 
-// Redux:
-const ADD = 'ADD';
 
-const addMessage = (message) => {
-  return {
-    type: ADD,
-    message: message
-  }
-};
 
-const messageReducer = (state = [], action) => {
-  switch (action.type) {
-    case ADD:
-      return [
-        ...state,
-        action.message
-      ];
-    default:
-      return state;
-  }
-};
+const initialState = {
+  value: 0,
+}
 
-const store = Redux.createStore(messageReducer);
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state) => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It
+      // doesn't actually mutate the state because it uses the Immer library,
+      // which detects changes to a "draft state" and produces a brand new
+      // immutable state based off those changes
+      state.value += 1
+    },
+    decrement: (state) => {
+      state.value -= 1
+    },
+    incrementByAmount: (state, action) => {
+      state.value += action.payload
+    },
+  },
+})
+
+// Action creators are generated for each case reducer function
+//export const { increment, decrement, incrementByAmount } = counterSlice.actions
+
+//export default counterSlice.reducer
+
 
 // React:
 class Presentational extends React.Component {
