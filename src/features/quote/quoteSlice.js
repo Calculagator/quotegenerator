@@ -15,4 +15,4 @@ const quoteSlice = createSlice({
 
 //console.log(cartSlice);
 
-export const quoteReducer = cartSlice.reducer;
+export const quoteReducer = quoteSlice.reducer;
