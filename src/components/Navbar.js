@@ -1,18 +1,18 @@
 import { CartIcon, Upload } from '../icons';
 import { useSelector } from "react-redux";
 
-const Navbar = () => {
-  const { amount } = useSelector((state) => state.cart);
+const Navbar = (props) => {
+  //const { amount } = useSelector((state) => state.cart);
 
   return (
     <nav>
       <div className = 'nav-center'>
         <h3>redux toolkit</h3>
         <div className = 'nav-container'>
-          <Upload />
+          {/*<Upload /> */}
           <CartIcon />
           <div className = 'amount-container'>
-            <p className='total-amount'>{amount}</p>
+            <p className='total-amount'>{props.amount}</p>
           </div>
         </div>
       </div>

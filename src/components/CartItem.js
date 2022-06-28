@@ -1,4 +1,4 @@
-import { useSelector,useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ChevronDown,ChevronUp } from "../icons";
 import { removeItem,increase,decrease } from "../features/cart/cartSlice";
 
@@ -30,10 +30,10 @@ const CartItem = (props) => {
         <button 
           className="amount-btn"
           onClick={()=> {
-            if (amount <=1) {
-              
+            if (props.amount > 1) {
+              dispatch(decrease(props.id))
             }
-            dispatch(decrease(props.id))
+            
           }}>
           <ChevronDown />
           </button>
