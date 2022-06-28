@@ -15,9 +15,11 @@ const QuoteBox = ({quote}) => {
         <h3>{author}</h3>
       </div>
       <div id="quote-buttons">
-        <button
-          id="tweet-quote">
-            <Tweet />
+      <button id='tweet-quote' 
+        target="_blank" 
+        href="twitter.com/intent/tweet">
+          Tweet 
+          <Tweet />
         </button>
         <button type="button"
           id="new-quote"
