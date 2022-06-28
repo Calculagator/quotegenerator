@@ -7,27 +7,27 @@ const QuoteBox = ({quote}) => {
   const {author, text} = quote;
 
   return (
-    <div id="quote-box">
+    <article id="quote-box">
       <div id="text">
-        <h4>{text}</h4>
+        <p>{text}</p>
       </div>
       <div id="author">
-        <h3>{author}</h3>
+        <h4>{author}</h4>
       </div>
       <div id="quote-buttons">
-      <button id='tweet-quote' 
-        target="_blank" 
-        href="twitter.com/intent/tweet">
-          Tweet 
+      <a id='tweet-quote' 
+        target="_blank"
+        rel="noreferrer" 
+        href={"https://twitter.com/intent/tweet?text=" + encodeURIComponent(text + ' -' + author)}>
           <Tweet />
-        </button>
-        <button type="button"
+      </a>
+      <button type="button"
           id="new-quote"
           onClick={() => dispatch(getQuote())}>
             New
-        </button> 
+      </button> 
       </div>
-    </div>
+    </article>
   );
 }
 
