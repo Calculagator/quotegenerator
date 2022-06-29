@@ -8,11 +8,11 @@ const QuoteBox = ({quote}) => {
 
   return (
     <article id="quote-box">
-      <div id="text">
+      <div id="text" className="text">
         <p>{text}</p>
       </div>
-      <div id="author">
-        <h4>{author}</h4>
+      <div id="author" className="author">
+        {author}
       </div>
       <div id="quote-buttons">
       <a id='tweet-quote' 

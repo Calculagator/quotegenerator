@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getQuote } from './features/quote/quoteSlice';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch()
   
   const quote = useSelector(state => state.quote);
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <main>
-      {!quote.isLoading && <QuoteBox quote={quote}/>}
+      <QuoteBox quote={quote}/>
     </main>
   );
 }
